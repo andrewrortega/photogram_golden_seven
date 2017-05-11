@@ -4,6 +4,10 @@
 <%= @my_photo.caption %>
 </p>
 
-<a href="http://localhost:3000/photos">Back</a>
-<a href="http://localhost:3000/photos/<%= @my_photo %>/edit">Edit</a>
-<a href="http://localhost:3000/delete_photo/<%= @my_photo %>">Delete</a>
+<p>
+<%= time_ago_in_words(@my_photo.created_at) %>
+</p>
+
+<a href="/photos">Back</a>
+<a href="/photos/<%= @my_photo.id %>/edit">Edit</a>
+<a href="/delete_photo/<%= @my_photo.id %>">Delete</a>
