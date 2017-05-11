@@ -26,7 +26,7 @@ class PhotosController < ApplicationController
   end
 
   def edit_form
-    render("photos/edit_form.html.erb")
+    @photo_edit = Photo.find(params[:id])
   end
 
   def update_row
@@ -34,9 +34,9 @@ class PhotosController < ApplicationController
   end
 
   def destroy_row
-    Photo.destroy("/delete_photo/:id")
-    # render("photos/destroy_row.html.erb")
-    redirect_to("/photos")
+      @photo_destroy = Photo.find(params[:id])
+      @photo_destroy.destroy
+      redirect_to("/photos")
   end
 
 end
